@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SirilakaAsiriya.lk</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+    	body {background-image: url("https://i.pinimg.com/originals/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg");}
+    	#header {
+    		background: linear-gradient(to bottom, #009900 0%, #ffffcc 100%);
+    		font-weight: bold;
+    		}
+    	#jumbotron {
+    		background:linear-gradient(to top left, #99ff66 0%, #ffffff 100%);
+    		text-align: justify;
+    		}
+    	#button {background-color: #006600;}
+    	#show_btn {background-color: #006600;}
+    
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">සිරිලක අසිරිය.lk</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/addspecies">Add Species</a>
+                <a class="nav-link" href="/adduser">Add User</a>
+                <a class="nav-link" href="/addcategory">Add Category</a>
+                <a class="nav-link" href="/users">View User</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron mt-3 mb-3" id="jumbotron">
+        <h1 class="display-4">සිරිලක අසිරිය </h1>
+        <p class="lead">අප මව්බිමේ සුන්දර විශේෂයන්ගේ අසිරිය විඳගැනීමට මේ වෙබඩවිය මගින් උත්සහා කරන අතර, 
+        එදිනෙදා ජීවිතයේදී ඔබ දකින යම් සත්ත්වයෙක්, යම් පක්ශීයෙක් හෝ යම් ශාකයක් ඔබට මෙහිඳී ඇතුළත් කළ හැකි අතර,
+         අන් අය එකතු කරනා තොරතුරු නැරඹීමෙන් ඔබට ඔබේ දැනුම වර්ධනය කර ගැනීමට ඉඩ සැලසෙන අතරම, සිරිලක අප
+          කලාතුරකින් දක්නට ලැබෙන අසිරිය විඳගැනීමටද අවස්ථාව ලැබේ.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary" href="/addspecies" id="button">විශේෂ ඇතුළත් කිරීම / Add Species</a>
+    </div>
+    <hr class="my-4 mt-2 mb-2"/>
+    <div class="row mt-3 mb-3 justify-content-around" th:object="${specieslist}">
+        <th:block th:each="list : ${specieslist}">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img th:src="${list.species_img}" th:alt="${list.species_name}" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${list.species_name}"></h5>
+                        කර්තෘ / Author: <p class="badge badge-secondary" th:text="${list.userProfile.first_name} +' '+${list.userProfile.last_name}"></p>
+                        <p class="card-text" th:text="${#strings.abbreviate(list.species_desc,150)}"></p>
+                        <p>
+                            <th:block th:each="t: ${list.tags}">
+                                <span class="badge badge-info" th:text="${t.name}"></span>
+                            </th:block>
+                        </p>
+
+                        <a th:href="@{'/species/' + ${list.id}}" class="btn btn-primary" id="show_btn">තොරතුරු පෙන්වන්න / View Details</a>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+
+    </div>
+</div>
+</body>
+</html>

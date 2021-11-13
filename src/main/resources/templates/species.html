@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>SirilakaAsiriya.lk</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+    	body {background-image: url("https://i.pinimg.com/originals/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg");}
+    	#jumbotron {background:linear-gradient(to top left, #99ff66 0%, #ffffff 100%);}
+    	#header {
+    		background: linear-gradient(to bottom, #009900 0%, #ffffcc 100%);
+    		font-weight: bold;
+    		}
+    
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">සිරිලක අසිරිය.lk</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/addspecies">Add Species</a>
+                <a class="nav-link" href="/adduser">Add User</a>
+                <a class="nav-link" href="/addcategory">Add Category</a>
+                <a class="nav-link" href="/users">View User</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container" id="jumbotron">
+    <div class="row mt-3 mb-3 justify-content-center">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="card row mt-3">
+                    <div class="card-body mt-3 mb-3">
+                        <h2 class="text-center">තොරතුරු පෙන්වන්න / View Details</h2>
+                        <div class="col mt-3 mb-3" th:object="${speciesdetails}">
+
+                            <div class="card">
+                                <img th:src="${speciesdetails.species_img}" th:alt="${speciesdetails.species_name}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${speciesdetails.species_name}"></h5>
+                                    කර්තෘ / Author: <p class="badge badge-secondary" th:text="${speciesdetails.userProfile.first_name} +' '+${speciesdetails.userProfile.last_name}"></p>
+                                    <p class="card-text" th:text="${speciesdetails.species_desc}"></p>
+
+                                    <p>
+                                        <th:block th:each="t: ${speciesdetails.tags}">
+                                            <span class="badge badge-info" th:text="${t.name}"></span>
+                                        </th:block>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</div>
+</body>
+</html>
