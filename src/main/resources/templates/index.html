@@ -29,10 +29,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Species</a>
-                <a class="nav-link" href="/adduser">Add User</a>
-                <a class="nav-link" href="/addcategory">Add Category</a>
-                <a class="nav-link" href="/users">View User</a>
+                <a class="nav-link" href="/addspecies">Add Lessons</a>
+                <a class="nav-link" href="/adduser">Add Authors</a>
+                <a class="nav-link" href="/addcategory">Add Subjects</a>
+                <a class="nav-link" href="/users">View Authors</a>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                     <img th:src="${list.species_img}" th:alt="${list.species_name}" class="card-img-top" >
                     <div class="card-body">
                         <h5 class="card-title" th:text="${list.species_name}"></h5>
-                        කර්තෘ / Author: <p class="badge badge-secondary" th:text="${list.userProfile.first_name} +' '+${list.userProfile.last_name}"></p>
+                        Author: <p class="badge badge-secondary" th:text="${list.userProfile.first_name} +' '+${list.userProfile.last_name}"></p>
                         <p class="card-text" th:text="${#strings.abbreviate(list.species_desc,150)}"></p>
                         <p>
                             <th:block th:each="t: ${list.tags}">
@@ -60,7 +60,7 @@
                             </th:block>
                         </p>
 
-                        <a th:href="@{'/species/' + ${list.id}}" class="btn btn-primary" id="button">තොරතුරු පෙන්වන්න / View Details</a>
+                        <a th:href="@{'/species/' + ${list.id}}" class="btn btn-primary" id="button"> View in Details</a>
                     </div>
                 </div>
             </div>

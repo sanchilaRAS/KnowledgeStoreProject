@@ -29,10 +29,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Species</a>
-                <a class="nav-link" href="/adduser">Add User</a>
-                <a class="nav-link" href="/addcategory">Add Category</a>
-                <a class="nav-link" href="/users">View User</a>
+                <a class="nav-link" href="/addspecies">Add Lessons</a>
+                <a class="nav-link" href="/adduser">Add Authors</a>
+                <a class="nav-link" href="/addcategory">Add Subjects</a>
+                <a class="nav-link" href="/users">View Authors</a>
             </div>
         </div>
     </div>
@@ -42,17 +42,17 @@
         <div class="col-md-6">
             <div class="card" id="card">
                 <div class="card-body">
-                    <h2 class="text-center mt-3 mb-3">නව කාණ්ඩයක් සහ විශේෂ ලක්ෂණ සාදන්න / Create a New Category and Special Characteristics</h2>
+                    <h2 class="text-center mt-3 mb-3">Add Subject category</h2>
 
                     <form action="#" th:action="@{/createtag}" th:object="${tag}"
                           method="POST">
 
-                        <label for="name" class="form-label mt-2 mb-2">කාණ්ඩයේ නම හෝ විශේෂ ලක්ෂණ ("උදා : කුරුල්ලා, පියාසර කළ හැකිය")<br>
-                        Category Name or Special Characteristics ("Eg : Bird, Can fly")</label>
+                        <label for="name" class="form-label mt-2 mb-2">
+                        Subject Area ("Eg : Science, ICT, Art")</label>
                         <input type="text" th:field="*{name}"
                                placeholder="Category Name or Special Characteristics" class="form-control " id="name" required>
 
-                        <button type="submit" class="btn btn-primary mt-3" id="button">එකතු කරන්න / Add</button>
+                        <button type="submit" class="btn btn-primary mt-3" id="button">Add</button>
                     </form>
                 </div>
             </div>

@@ -27,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Species</a>
-                <a class="nav-link" href="/adduser">Add User</a>
-                <a class="nav-link" href="/addcategory">Add Category</a>
-                <a class="nav-link" href="/users">View User</a>
+                <a class="nav-link" href="/addspecies">Add Lessons</a>
+                <a class="nav-link" href="/adduser">Add Authors</a>
+                <a class="nav-link" href="/addcategory">Add Subjects</a>
+                <a class="nav-link" href="/users">View Authors</a>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
                                 <img th:src="${speciesdetails.species_img}" th:alt="${speciesdetails.species_name}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title" th:text="${speciesdetails.species_name}"></h5>
-                                    කර්තෘ / Author: <p class="badge badge-secondary" th:text="${speciesdetails.userProfile.first_name} +' '+${speciesdetails.userProfile.last_name}"></p>
+                                    Author: <p class="badge badge-secondary" th:text="${speciesdetails.userProfile.first_name} +' '+${speciesdetails.userProfile.last_name}"></p>
                                     <p class="card-text" th:text="${speciesdetails.species_desc}"></p>
 
                                     <p>
