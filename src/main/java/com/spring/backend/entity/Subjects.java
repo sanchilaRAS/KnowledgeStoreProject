@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name = "subjects")
+public class Subjects {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,15 +16,15 @@ public class Tag {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "tags")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "subjects")
 
-    private Set<Species> speciess = new HashSet<>();
+    private Set<Notes> notes = new HashSet<>();
 
-    public Tag() {
+    public Subjects() {
 
     }
 
-    public Tag(String name) {
+    public Subjects(String name) {
         this.name = name;
     }
 
@@ -44,11 +44,13 @@ public class Tag {
         this.name = name;
     }
 
-    public Set<Species> getspeciess() {
-        return speciess;
-    }
+	public Set<Notes> getNotes() {
+		return notes;
+	}
 
-    public void setspeciess(Set<Species> speciess) {
-        this.speciess = speciess;
-    }
+	public void setNotes(Set<Notes> notes) {
+		this.notes = notes;
+	}
+
+    
 }

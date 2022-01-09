@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>Knowledge Store</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -13,10 +13,8 @@
     		background: #BBC8D5;
     		font-weight: bold;
     		}
-    	#jumbotron {
-    		background:none ;
-    		text-align: justify;
-    		}
+    	#jumbotron {background:linear-gradient(to top left, #4479AB  0%, #60A1E0  100%);}
+    	
     	#button {background-color:#2573BD ;}
     	#show_btn {background-color: #802898 ;}
     
@@ -24,7 +22,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
-    <div class="container-fluid text-center">
+    <div class="container-fluid">
         <a class="btn btn-primary text-center" href="/">Knowledge Store</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
@@ -33,24 +31,24 @@
                 <a class="nav-link" href="/allnotes">All Notes</a>
                 <a class="nav-link" href="/addauthor">Add Authors</a>
                 <a class="nav-link" href="/addsubjects">Add Subjects</a>
-             <!-- <a class="nav-link" href="/authors">View Authors</a>-->
+                 <!-- <a class="nav-link" href="/authors">View Authors</a>-->
             </div>
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="jumbotron mt-4 mb-3" id="jumbotron">
-        <h1 class="display-3" style="color: white;font-family: Fantacy, Copperplate, monospace;">Knowledge Store </h1>
-        <p class="lead" style="color:#D9E8F7;font-family: Fantacy, Copperplate, monospace;">Share Knowledge | Add Your Notes Here | Let's learn Together</p>
-        <hr class="my-3">
-        <a class="btn btn-primary" href="/addnotes" id="button">Add Notes</a>
-    </div>
-    <hr class="my-4 mt-2 mb-2"/>
-   <!--   <div class="row mt-3 mb-3 justify-content-around" th:object="${noteslist}">
+<div class="container" id="jumbotron">
+    <div class="row mt-3 mb-3 justify-content-center">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="card row mt-3">
+                    <div class="card-body mt-3 mb-3">
+                    
+                        <h2 class="text-center" href="/allnotes">All Notes</h2>
+                            <div class="row mt-3 mb-3 justify-content-around" th:object="${noteslist}">
         <th:block th:each="list : ${noteslist}">
             <div class="col-md-4 mb-3">
                 <div class="card">
-                  
+                   <!-- img deleted-->
                     <div class="card-body">
                         <h5 class="card-title" th:text="${list.note_title}"></h5>
                         Author: <p class="badge badge-secondary" th:text="${list.authorProfile.first_name} +' '+${list.authorProfile.last_name}"></p>
@@ -67,7 +65,13 @@
             </div>
         </th:block>
 
-    </div>-->
+    </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
 </div>
 </body>
 </html>

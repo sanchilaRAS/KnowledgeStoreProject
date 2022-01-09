@@ -27,10 +27,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Lessons</a>
-                <a class="nav-link" href="/adduser">Add Authors</a>
-                <a class="nav-link" href="/addcategory">Add Subjects</a>
-                <a class="nav-link" href="/users">View Authors</a>
+                 <a class="nav-link" href="/addnotes">Add Note</a>
+                <a class="nav-link" href="/allnotes">All Notes</a>
+                <a class="nav-link" href="/addauthor">Add Authors</a>
+                <a class="nav-link" href="/addsubjects">Add Subjects</a>
+                <a class="nav-link" href="/authors">View Authors</a>
             </div>
         </div>
     </div>
@@ -43,17 +44,17 @@
                     <div class="card-body mt-3 mb-3">
                     
                         <h2 class="text-center">View Details</h2>
-                        <div class="col mt-3 mb-3" th:object="${speciesdetails}">
+                        <div class="col mt-3 mb-3" th:object="${notesdtails}">
 
                             <div class="card">
-                                <img th:src="${speciesdetails.species_img}" th:alt="${speciesdetails.species_name}" class="card-img-top" alt="...">
+                               <!--  <img th:src="${notesdtails.species_img}" th:alt="${speciesdetails.species_name}" class="card-img-top" alt="...">-->
                                 <div class="card-body">
-                                    <h5 class="card-title" th:text="${speciesdetails.species_name}"></h5>
-                                    Author: <p class="badge badge-secondary" th:text="${speciesdetails.userProfile.first_name} +' '+${speciesdetails.userProfile.last_name}"></p>
-                                    <p class="card-text" th:text="${speciesdetails.species_desc}"></p>
+                                    <h5 class="card-title" th:text="${notesdtails.note_title}"></h5>
+                                    Author: <p class="badge badge-secondary" th:text="${notesdtails.authorProfile.first_name} +' '+${notesdtails.authorProfile.last_name}"></p>
+                                    <p class="card-text" th:text="${notesdtails.note_desc}"></p>
 
                                     <p>
-                                        <th:block th:each="t: ${speciesdetails.tags}">
+                                        <th:block th:each="t: ${notesdtails.subjects}">
                                             <span class="badge badge-info" th:text="${t.name}"></span>
                                         </th:block>
                                     </p>

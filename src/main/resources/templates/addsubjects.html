@@ -29,10 +29,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Lessons</a>
-                <a class="nav-link" href="/adduser">Add Authors</a>
-                <a class="nav-link" href="/addcategory">Add Subjects</a>
-                <a class="nav-link" href="/users">View Authors</a>
+                <a class="nav-link" href="/addnotes">Add Note</a>
+                <a class="nav-link" href="/allnotes">All Notes</a>
+                <a class="nav-link" href="/addauthor">Add Authors</a>
+                <a class="nav-link" href="/addsubjects">Add Subjects</a>
+               <!-- <a class="nav-link" href="/authors">View Authors</a>-->
             </div>
         </div>
     </div>
@@ -44,7 +45,7 @@
                 <div class="card-body">
                     <h2 class="text-center mt-3 mb-3">Add Subject category</h2>
 
-                    <form action="#" th:action="@{/createtag}" th:object="${tag}"
+                    <form action="#" th:action="@{/createsubject}" th:object="${subject}"
                           method="POST">
 
                         <label for="name" class="form-label mt-2 mb-2">

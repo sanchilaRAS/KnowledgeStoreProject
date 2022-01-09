@@ -30,66 +30,79 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Lessons</a>
-                <a class="nav-link" href="/adduser">Add Authors</a>
-                <a class="nav-link" href="/addcategory">Add Subjects</a>
-                <a class="nav-link" href="/users">View Authors</a>
+                <a class="nav-link" href="/addnotes">Add Note</a>
+                <a class="nav-link" href="/allnotes">All Notes</a>
+                <a class="nav-link" href="/addauthor">Add Authors</a>
+                <a class="nav-link" href="/addsubjects">Add Subjects</a>
+                <!-- <a class="nav-link" href="/authors">View Authors</a>-->
             </div>
         </div>
     </div>
 </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row mt-3 mb-3 justify-content-around">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <div class="card" id="card">
                     <div class="card-body">
                         <h2 class="text-center mt-3 mb-3">Add Notes</h2>
 
-                        <form action="#" th:action="@{/createspecies}" th:object="${species}"
+                        <form action="#" th:action="@{/createnotes}" th:object="${notes}"
                               method="POST">
-                            <label for="species_name" class="form-label mt-2 mb-1">Title</label>
-                            <input type="text" th:field="*{species_name}"
-                                   placeholder="Species Name" class="form-control" id="species_name" required/>
+                          <div class="row">
+  							  
+                            <div class="col-6">
+  							<div class="centered"> 
+                              
+                            <label for="note_title" class="form-label mt-2 mb-1">Title</label>
+                            <input type="text" th:field="*{note_title}"
+                                   placeholder="Notes Title" class="form-control" id="note_title" required/>
 
-                            <label for="species_image" class="form-label mt-2 mb-1"></label>
-                            <input type="text" th:field="*{species_img}"
-                                   placeholder="Species Image" class="form-control " id="species_image" required/>
-
-                            <label for="species_desc" class="form-label mt-2 mb-1">Note</label>
-                            <textarea type="text" th:field="*{species_desc}"
-                                   placeholder="Species Description" class="form-control" id="species_desc" required/>
-
-<hr>
-                                <label  for="mod_id" class="form-label mt-2 mb-1">User Id </label>
-                                <select  id="mod_id"  th:field="*{userProfile}" class="form-control" required>
+							
+							    <label  for="mod_id" class="form-label mt-2 mb-1">User Id </label>
+                                <select  id="mod_id"  th:field="*{authorProfile}" class="form-control" required>
                                     <option value="" th:disabled="disabled" th:selected="selected">
                                        Select option
                                     </option>
-                                    <th:block th:each="list : ${userProfileList}">
+                                    <th:block th:each="list : ${authorProfileList}">
                                         <option th:text="${list.first_name} + ' ' + ${list.last_name}" th:value="${list.id}"/>
                                     </th:block>
                                 </select>
 
-                            <label  for="tag_1" class="form-label mt-2 mb-1">Select Subject Category</label>
-                            <select  id="tag_1"  th:field="*{tags}" class="form-control" >
+                            <label  for="sub_1" class="form-label mt-2 mb-1">Select Subject Category</label>
+                            <select  id="sub_1"  th:field="*{subjects}" class="form-control" >
                                 <option value="" th:disabled="disabled" th:selected="selected">
                                     Select option
                                 </option>
-                                <th:block th:each="list1 : ${tagList}">
+                                <th:block th:each="list1 : ${subjectsList}">
                                     <option th:text="${list1.name}" th:value="${list1.id}"/>
                                 </th:block>
                             </select>
 
                             <label  for="tag_2" class="form-label mt-2 mb-1">Sub Category</label>
-                            <select  id="tag_2"  th:field="*{tags}" class="form-control" >
+                            <select  id="tag_2"  th:field="*{subjects}" class="form-control" >
                                 <option value="" th:disabled="disabled" th:selected="selected">
                                    Select option
                                 </option>
-                                <th:block th:each="list2 : ${tagList}">
+                                <th:block th:each="list2 : ${subjectsList}">
                                     <option th:text="${list2.name}" th:value="${list2.id}"/>
                                 </th:block>
                             </select>
+							</div>
+							</div>
+<hr>
+								
+							<div class="col-6">
+  							<div class="centered">
+                             <label for="note_desc" class="form-label mt-2 mb-1">Note</label>
+                            <textarea type="text" th:field="*{note_desc}"
+                                   placeholder="Notes Description" class="form-control" id="note_desc" rows="10" cols="50"  required/>
+							
 
+							</div>
+							</div>
+							</div>
+							
+							
                             <button type="submit" class="btn btn-primary mt-3" id="button">Add</button>
                         </form>
                     </div>

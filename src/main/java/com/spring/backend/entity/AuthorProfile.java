@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "userprofile")
-public class UserProfile {
+@Table(name = "authorprofile")
+public class AuthorProfile {
 
     @Id
     @Column(name="id")
@@ -22,18 +22,18 @@ public class UserProfile {
     @Column(name = "phone_number")
     private String phone_number;
 
-    @Column(name = "hometown")
+    @Column(name = "home_town")
     private String home_town;
 
-    @OneToMany(mappedBy = "userProfile" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "authorProfile" ,cascade = CascadeType.ALL)
 //    @JoinColumn(name = "uc_fid",referencedColumnName = "id")
-    List<Species> speciess = new ArrayList<>();
+    List<Notes> notes = new ArrayList<>();
 
-    public UserProfile() {
+    public AuthorProfile() {
 
     }
 
-    public UserProfile(String first_name, String last_name, String phone_number, String home_town) {
+    public AuthorProfile(String first_name, String last_name, String phone_number, String home_town) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
@@ -80,11 +80,11 @@ public class UserProfile {
         this.home_town = home_town;
     }
 
-    public List<Species> getspeciess() {
-        return speciess;
+    public List<Notes> getNotes() {
+        return notes;
     }
 
-    public void setspeciess(List<Species> speciess) {
-        this.speciess = speciess;
+    public void setNotes(List<Notes> notes) {
+        this.notes = notes;
     }
 }

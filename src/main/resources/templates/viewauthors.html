@@ -29,10 +29,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/addspecies">Add Lessons</a>
-                <a class="nav-link" href="/adduser">Add Authors</a>
-                <a class="nav-link" href="/addcategory">Add Subjects</a>
-                <a class="nav-link" href="/users">View Authors</a>
+                <a class="nav-link" href="/addnotes">Add Note</a>
+                <a class="nav-link" href="/allnotes">All Notes</a>
+                <a class="nav-link" href="/addauthor">Add Authors</a>
+                <a class="nav-link" href="/addsubjects">Add Subjects</a>
+                <!-- <a class="nav-link" href="/authors">View Authors</a>-->
             </div>
         </div>
     </div>
@@ -46,7 +47,7 @@
                         <h2 class="text-center mt-3 mb-3">All Authors</h2>
                     </div>
                     <div class="row mt-3 mb-3 justify-content-center ">
-                        <a  class="btn btn-primary" th:href = "@{/adduser}" id="button">Add New Author</a>
+                        <a  class="btn btn-primary" th:href = "@{/addauthor}" id="button">Add New Author</a>
                     </div>
 
                     <div class="row text-center" >
@@ -61,11 +62,11 @@
 
                             </thead>
                             <tbody>
-                                <tr th:each="user : ${userlist}">
-                                    <td th:text="${user.username}"></td>
-                                    <td th:text="${user.email}"></td>
-                                    <td th:text="${user.userProfile.phone_number}"></td>
-                                    <td th:text="${user.userProfile.home_town}"></td>
+                                <tr th:each="author : ${authorlist}">
+                                    <td th:text="${author.authorname}"></td>
+                                    <td th:text="${author.email}"></td>
+                                    <td th:text="${author.authorProfile.phone_number}"></td>
+                                    <td th:text="${author.authorProfile.home_town}"></td>
                                 </tr>
                             </tbody>
                         </table>
